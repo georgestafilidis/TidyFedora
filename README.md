@@ -118,7 +118,7 @@ sudo systemctl enable NetworkManager-wait-online.service
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/2683131b-bf07-42c2-91fe-b1cb55b1eaee" width="128" height="128" alt="Gradia"></td>
+<td><img src="https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Gradia.png?raw=true" width="128" height="128" alt="Gradia"></td>
 <td>
 <strong>Gradia</strong> – annotate your screenshots. Helps prepare screenshots quickly for sharing with friends, colleagues, or for professional use.<br>
 <a href="https://flathub.org/en/apps/be.alexandervanhee.gradia" target="_blank">View on Flathub</a>
@@ -128,7 +128,7 @@ sudo systemctl enable NetworkManager-wait-online.service
 
 <table>
 <tr>
-<td><img width="128" height="128" alt="Warehouse" src="https://github.com/user-attachments/assets/ad7ea02d-b031-4aec-8c23-81ccf143fd9a"></td>
+<td><img width="128" height="128" alt="Warehouse" src="https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Warehouse.png?raw=true"></td>
 <td>
 <strong>Warehouse</strong> – manage all things Flatpak. Provides a simple UI to control complex Flatpak options without using the command line.<br>
 <a href="https://flathub.org/en/apps/io.github.flattool.Warehouse" target="_blank">View on Flathub</a>
@@ -138,7 +138,7 @@ sudo systemctl enable NetworkManager-wait-online.service
 
 <table>
 <tr>
-<td><img width="128" height="128" alt="Flatseal" src="https://github.com/user-attachments/assets/7db809f7-6173-40dc-8897-100ab53c7ae3"></td>
+<td><img width="128" height="128" alt="Flatseal" src="https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Flatseal.png?raw=true"></td>
 <td>
 <strong>Flatseal</strong> – Manage Flatpak permissions. A graphical utility to review and modify permissions of your Flatpak applications.<br>
 <a href="https://flathub.org/en/apps/com.github.tchx84.Flatseal" target="_blank">View on Flathub</a>
