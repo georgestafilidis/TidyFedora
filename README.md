@@ -16,7 +16,7 @@ This guide removes packages typically unnecessary on a clean Fedora installation
 
 
 <h3 align="center">🤝 Suggestions and Contributions</h3>
-<p align="center">Have recommendations or notice issues? Open an issue! If you know of pre-installed apps, add-ons, or services that can be safely removed or disabled, please share—they help improve this guide.</p>
+<p align="center">Have recommendations or notice issues? Open an issue! If you know of pre-installed apps, add-ons, or services that can be safely removed or disabled, please share - they help improve this guide.</p>
 
 ---
 
@@ -116,42 +116,38 @@ sudo systemctl enable NetworkManager-wait-online.service
 <h3 align="center">🚀 Recommended Applications</h3>
 <p align="center">Here are some recommended applications that can enhance your Fedora experience. These apps are useful, easy to install, and can help improve your workflow.</p>
 
-<table>
-<tr>
-<td><img src="https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Gradia.png?raw=true" width="128" height="128" alt="Gradia"></td>
-<td>
-<strong>Gradia</strong> – annotate your screenshots. Helps prepare screenshots quickly for sharing with friends, colleagues, or for professional use.<br>
-<a href="https://flathub.org/en/apps/be.alexandervanhee.gradia" target="_blank">View on Flathub</a>
-</td>
-</tr>
-</table>
+![Gradia Logo](https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Gradia.png?raw=true)
 
-<table>
-<tr>
-<td><img width="128" height="128" alt="Warehouse" src="https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Warehouse.png?raw=true"></td>
-<td>
-<strong>Warehouse</strong> – manage all things Flatpak. Provides a simple UI to control complex Flatpak options without using the command line.<br>
-<a href="https://flathub.org/en/apps/io.github.flattool.Warehouse" target="_blank">View on Flathub</a>
-</td>
-</tr>
-</table>
+| [**Gradia**](https://flathub.org/en/apps/be.alexandervanhee.gradia)       |
+|---------------------------------------------------------------------------|
+| Annotate your screenshots.                                                 |
 
-<table>
-<tr>
-<td><img width="128" height="128" alt="Flatseal" src="https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Flatseal.png?raw=true"></td>
-<td>
-<strong>Flatseal</strong> – Manage Flatpak permissions. A graphical utility to review and modify permissions of your Flatpak applications.<br>
-<a href="https://flathub.org/en/apps/com.github.tchx84.Flatseal" target="_blank">View on Flathub</a>
-</td>
-</tr>
-</table>
 
----
+![Warehouse Logo](https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Warehouse.png?raw=true)
+
+| [**Warehouse**](https://flathub.org/en/apps/io.github.flattool.Warehouse) |
+|---------------------------------------------------------------------------|
+| Manage all things Flatpak.                                                 |
+
+
+![Flatseal Logo](https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Flatseal.png?raw=true)
+
+| [**Flatseal**](https://flathub.org/en/apps/com.github.tchx84.Flatseal)     |
+|---------------------------------------------------------------------------|
+| Manage Flatpak permissions.                                                |
+
+
+![Resources Logo](https://github.com/georgestafilidis/TidyFedora/blob/858c51cd39cfe49c8052873aec28e17db7b5dc3c/assets/Resources.png?raw=true)
+
+| [**Resources**](https://flathub.org/en/apps/net.nokyan.Resources)          |
+|---------------------------------------------------------------------------|
+| Keep an eye on system resources.                                           |
+
 
 <h3 align="center">🧩 GNOME Extensions</h3>
 <p align="center">This section will list useful GNOME extensions that enhance your desktop experience. More extensions will be added soon.</p>
 
-Extension 1 – Description (coming soon)
+[Foresight](https://extensions.gnome.org/extension/7901/foresight/) – Automagically opens the activities view when workspace is empty. It uses callbacks to monitor windows and workspaces (instead of actively checking on them on certain time intervals), which makes it very efficient and responsive.
 
 Extension 2 – Description (coming soon)
 
