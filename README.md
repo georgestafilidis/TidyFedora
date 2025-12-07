@@ -1,144 +1,125 @@
+# Tidy My Fedora 🧽
+
 Based on the [Fedora Noble Guide](https://github.com/wz790/Fedora-Noble-Setup), with targeted modifications.
 
-This guide removes packages typically unnecessary on a clean Fedora installation and provides recommendations for practical applications and GNOME extensions to optimize a default setup.
+This guide helps you clean up a fresh Fedora installation by removing optional packages and providing recommendations for practical applications, GNOME extensions, and system tweaks to make your desktop setup easier to manage.
 
+### 🔄 Reversible Changes
+This guide helps you clean up a fresh Fedora installation. Every item includes both a remove command and a restore command, so you can safely undo any changes at any time.
 
-<h3 align="center">🤝 Suggestions and Contributions</h3>
-<p align="center">Have recommendations or notice issues? Open an issue! If you know of pre-installed apps, add-ons, or services that can be safely removed or disabled, please share - they help improve this guide.</p>
+- **Uninstall** command – remove it from your system.
+- **Restore** command – reinstall it anytime if needed.
 
----
-
-<h3 align="center">🧹 Remove unnecessary Add-ons</h3>
-<p align="center">These add-ons can be removed <strong>if not needed</strong> to reduce bloat and improve system performance.</p>
-<br>
-
-| Add-on Name          | Reason for Removal                        |
-|----------------------|------------------------------------------|
-| **ibus-m17n**        | Support for multiple multilingual input methods |
-| **ibus-typing-booster** | Predictive typing input method           |
-| **ibus-hangul**      | Korean input support                     |
-| **ibus-libpinyin**   | Chinese Pinyin input method              |
-| **ibus-anthy**       | Japanese input support                   |
-<br>
-
-Uninstall command:
+> 📃 Note<br> 
+Some packages may have dependencies or optional weak dependencies. When using the uninstall or restore commands, DNF may automatically remove or install additional packages to satisfy these dependencies. Always check the command output before confirming. If you want to prevent DNF from automatically removing dependent packages, you can optionally add the --noautoremove flag at the end of your uninstall command:
 ```
+sudo dnf remove <package> --noautoremove
+```
+
+<p align=center>  ───────── ౨ৎ ───────── </p>
+
+### 🧹 Remove unnecessary Add-ons
+These add-ons are optional. Remove any you don’t need.
+
+- **ibus-m17n** – Support for multiple multilingual input methods
+- **ibus-typing-booster** – Predictive typing input method
+- **ibus-hangul** – Korean input support
+- **ibus-libpinyin** – Chinese Pinyin input method
+- **ibus-anthy** – Japanese input support
+
+```
+# Uninstall
 sudo dnf remove ibus-m17n ibus-typing-booster ibus-hangul ibus-libpinyin ibus-anthy
-```
 
-Restore command:
-```
+# Restore
 sudo dnf install ibus-m17n ibus-typing-booster ibus-hangul ibus-libpinyin ibus-anthy
 ```
 
-> Note: These input source add-ons can be found in Software ➞ Explore ➞ very bottom ➞ Input Sources
-<br>
+> 📃 Note<br>
+These input source add-ons can be found in Software ➞ Explore ➞ very bottom ➞ Input Sources
 
----
+<p align=center>  ───────── ౨ৎ ───────── </p>
 
-<h3 align="center">🚫 Apps You Might Not Need</h3>
-<p align="center">Remove these apps <strong>if not needed</strong> to streamline your system and avoid unnecessary features.</p>
-<br>
+### 🚫 Apps You Might Not Need
+These apps are optional and can be removed if you don’t plan to use them.
 
-| App Name            | Reason for Removal                           |
-|---------------------|---------------------------------------------|
-| **gnome-tour**      | Not very useful after first boot            |
-| **gnome-color-manager** | Cannot be launched as a standalone app     |
-| **gnome-connections** | Users report it crashes often              |
-| **gnome-contacts**  | Generally unnecessary on desktop            |
-| **gnome-weather**   | Does not show all cities                    |
-| **gnome-abrt**      | Requires an API key; not very useful for new users |
-<br>
+- **gnome-tour** – Not very useful after first boot
+- **gnome-color-manager** – Cannot be launched as a standalone app
+- **gnome-connections** – Users report it crashes often
+- **gnome-contacts** – Does not show all cities
+- **gnome-weather** – Japanese input support
+- **gnome-abrt** - Requires an API key; not very useful for new users
 
-Uninstall command:
 ```
+# Uninstall
 sudo dnf remove gnome-tour gnome-color-manager gnome-connections gnome-contacts gnome-weather gnome-abrt
-```
 
-Restore command:
-```
+# Restore
 sudo dnf install gnome-tour gnome-color-manager gnome-connections gnome-contacts gnome-weather gnome-abrt
 ```
 
----
+<p align=center>  ───────── ౨ৎ ───────── </p>
 
-<h3 align="center">🛑 Optional System Services</h3>
-<p align="center">These background services can be disabled or removed <strong>if not needed</strong> for your system's usage.</p>
+### 🔴 Optional System Services
+Disable or remove these services if not required for your setup.
 
-| Service Name                        | Reason for Removal                                                       |
-|-------------------------------------|--------------------------------------------------------------------------|
-| **abrt**                            | Automatic Bug Reporting Tool; collects and reports application crashes. Not essential for new users. <br> Note: Removing this package also removes the Diagnostics menu under Settings ➞ Privacy & Security. |
-<br>
+- **abrt** - Automatic Bug Reporting Tool; collects and reports application crashes. Not essential for new users.
 
-Uninstall command:
 ```
+# Uninstall
 sudo dnf remove abrt
-```
-Restore command:
-```
+
+# Restore
 sudo dnf install abrt
 ```
 
----
+> 📃 Note<br>
+Removing this package also removes the Diagnostics menu under Settings ➞ Privacy & Security.
 
-<h3 align="center">⚡ Optional Boot Tweaks</h3>
-<p align="center">Disable or tweak these boot-related services <strong>if not needed</strong> for faster startup times or specific requirements.</p>
+<p align=center>  ───────── ౨ৎ ───────── </p>
 
-| Service Name                        | Reason for Removal                                                       |
-|-------------------------------------|--------------------------------------------------------------------------|
-| **NetworkManager-wait-online.service** | Delays boot until a network connection is fully established. Disabling this speeds up boot but may affect services that require the network at startup. |
-<br>
+### ⚡ Optional Boot Tweaks
+Disable or adjust these boot services if you don’t need them.
 
-Disable command:
+- **NetworkManager-wait-online.service** - Delays boot until a network connection is fully established.
+
 ```
+# Disable
 sudo systemctl disable NetworkManager-wait-online.service
-```
 
-Enable command:
-```
+# Enable
 sudo systemctl enable NetworkManager-wait-online.service
 ```
+> 📃 Note<br>
+Disabling NetworkManager-wait-online.service can speed up boot slightly, but may impact services that need a network connection at startup (e.g., VPNs or cloud sync).
 
----
+<p align=center>  ───────── ౨ৎ ───────── </p>
 
-<h3 align="center">🚀 Recommended Applications</h3>
-<p align="center">Here are some recommended applications that can enhance your Fedora experience. These apps are useful, easy to install, and can help improve your workflow.</p>
+### 🚀 Recommended Applications
+Here are some recommended applications that can enhance your Fedora experience. These apps are useful, easy to install, and can help improve your workflow.
 
-![Gradia Logo](https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Gradia.png?raw=true)
+- 🖊️ [**Gradia**](https://flathub.org/en/apps/be.alexandervanhee.gradia) – Annotate your screenshots
+- 📦 [**Warehouse**](https://flathub.org/en/apps/io.github.flattool.Warehouse) – Manage all things Flatpak 
+- 🔐 [**Flatseal**](https://flathub.org/en/apps/com.github.tchx84.Flatseal) – Control Flatpak permissions
+- 📊 [**Resources**](https://flathub.org/en/apps/net.nokyan.Resources) – Monitor system resources
+- ...
 
-| [**Gradia**](https://flathub.org/en/apps/be.alexandervanhee.gradia)       |
-|---------------------------------------------------------------------------|
-| Annotate your screenshots.                                                 |
+<p align=center>  ───────── ౨ৎ ───────── </p>
 
+### 🧩 GNOME Extensions
+To get started with GNOME extensions, install [Extension Manager](https://flathub.org/en/apps/com.mattjakeman.ExtensionManager). It helps you easily find, install, and manage extensions.
 
-![Warehouse Logo](https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Warehouse.png?raw=true)
+- [Foresight](https://extensions.gnome.org/extension/7901/foresight/) – Automatically opens the Activities view when no windows are open in the current workspace.
+- TBA
+- TBA
+- ...
 
-| [**Warehouse**](https://flathub.org/en/apps/io.github.flattool.Warehouse) |
-|---------------------------------------------------------------------------|
-| Manage all things Flatpak.                                                 |
+> 📃 Note<br>
+Install GNOME extensions one at a time and monitor their behavior. Conflicting extensions may cause desktop instability, and having too many can slow down your system.
 
+<p align=center>  ───────── ౨ৎ ───────── </p>
 
-![Flatseal Logo](https://github.com/georgestafilidis/minimal-fedora-setup/blob/faac4f6918cdabef2f8cfbde75f807ff0944133e/assets/Flatseal.png?raw=true)
+### 🤝 Suggestions and Contributions
+Have recommendations or notice issues? Open an issue! If you know of pre-installed apps, add-ons, or services that can be safely removed or disabled, please share - they help improve this guide.
 
-| [**Flatseal**](https://flathub.org/en/apps/com.github.tchx84.Flatseal)     |
-|---------------------------------------------------------------------------|
-| Manage Flatpak permissions.                                                |
-
-
-![Resources Logo](https://github.com/georgestafilidis/TidyFedora/blob/858c51cd39cfe49c8052873aec28e17db7b5dc3c/assets/Resources.png?raw=true)
-
-| [**Resources**](https://flathub.org/en/apps/net.nokyan.Resources)          |
-|---------------------------------------------------------------------------|
-| Keep an eye on system resources.                                           |
-
-
-<h3 align="center">🧩 GNOME Extensions</h3>
-<p align="center">This section will list useful GNOME extensions that enhance your desktop experience. More extensions will be added soon.</p>
-
-[Foresight](https://extensions.gnome.org/extension/7901/foresight/) – Automagically opens the activities view when workspace is empty. It uses callbacks to monitor windows and workspaces (instead of actively checking on them on certain time intervals), which makes it very efficient and responsive.
-
-Extension 2 – Description (coming soon)
-
-Extension 3 – Description (coming soon)
-
-
+<p align=center>  ───────── ౨ৎ ───────── </p>
