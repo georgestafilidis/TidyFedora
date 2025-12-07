@@ -2,10 +2,10 @@
 
 Based on the [**Fedora Noble Guide**](https://github.com/wz790/Fedora-Noble-Setup), with targeted modifications.
 
-This guide helps you clean up a fresh Fedora installation by removing optional packages and providing recommendations for practical applications, GNOME extensions, and system tweaks to make your desktop setup easier to manage.
+This guide will help you clean up your fresh Fedora install by getting rid of optional packages and recommending some useful apps, GNOME extensions, and tweaks to make your desktop setup more manageable.
 
 ### 🔄 Reversible Changes
-This guide helps you clean up a fresh Fedora installation. Every item includes both a remove command and a restore command, so you can safely undo any changes at any time.
+I also include both uninstall and restore commands, so you can safely undo any changes at any time.
 
 - **Uninstall** command – remove it from your system.
 - **Restore** command – reinstall it anytime if needed.
