@@ -1,15 +1,3 @@
-```
-    ███      ▄█  ████████▄  ▄██   ▄           ▄████████    ▄████████ ████████▄   ▄██████▄     ▄████████    ▄████████ 
-▀█████████▄ ███  ███   ▀███ ███   ██▄        ███    ███   ███    ███ ███   ▀███ ███    ███   ███    ███   ███    ███ 
-   ▀███▀▀██ ███▌ ███    ███ ███▄▄▄███        ███    █▀    ███    █▀  ███    ███ ███    ███   ███    ███   ███    ███ 
-    ███   ▀ ███▌ ███    ███ ▀▀▀▀▀▀███       ▄███▄▄▄      ▄███▄▄▄     ███    ███ ███    ███  ▄███▄▄▄▄██▀   ███    ███ 
-    ███     ███▌ ███    ███ ▄██   ███      ▀▀███▀▀▀     ▀▀███▀▀▀     ███    ███ ███    ███ ▀▀███▀▀▀▀▀   ▀███████████ 
-    ███     ███  ███    ███ ███   ███        ███          ███    █▄  ███    ███ ███    ███ ▀███████████   ███    ███ 
-    ███     ███  ███   ▄███ ███   ███        ███          ███    ███ ███   ▄███ ███    ███   ███    ███   ███    ███ 
-   ▄████▀   █▀   ████████▀   ▀█████▀         ███          ██████████ ████████▀   ▀██████▀    ███    ███   ███    █▀  
-                                                                                             ███    ███              
-```
-
 Based on the [Fedora Noble Guide](https://github.com/wz790/Fedora-Noble-Setup), with targeted modifications.
 
 This guide removes packages typically unnecessary on a clean Fedora installation and provides recommendations for practical applications and GNOME extensions to optimize a default setup.
