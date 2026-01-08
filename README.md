@@ -1,31 +1,29 @@
 # Tidy My Fedora 🧽
 
-Based on the [**Fedora Noble Guide**](https://github.com/wz790/Fedora-Noble-Setup), with targeted modifications.
+This is based on the [**Fedora Noble Guide**](https://github.com/wz790/Fedora-Noble-Setup), but I've tweaked it a bit.
 
-This guide will help you clean up your fresh Fedora install by getting rid of optional packages and recommending some useful apps, GNOME extensions, and tweaks to make your desktop setup more manageable.
+The goal here is to help you remove stuff you probably don't need on a new Fedora setup. I'll also suggest some handy apps, GNOME extensions, and small tweaks to make things feel cleaner and easier to use.
 
-### 🔄 Reversible Changes
-I also include both uninstall and restore commands, so you can safely undo any changes at any time.
+### 🔄 Everything is reversible
+For every change, I'll give you the command to undo it. So if you remove something and later think "wait, I kinda want that back," just run the restore command.
 
-- **Uninstall** command – remove it from your system.
-- **Restore** command – reinstall it anytime if needed.
+> When removing packages, DNF might want to pull out other stuff that depends on them. Always read what it's planning to do before you hit yes. If you want to stop it from auto-removing extras, add --noautoremove to the end of the remove command.
 
-> 📃 Notes<br> 
-Some packages may have dependencies or optional weak dependencies. When using the uninstall or restore commands, DNF may automatically remove or install additional packages to satisfy these dependencies. Always check the command output before confirming. If you want to prevent DNF from automatically removing dependent packages, you can optionally add the --noautoremove flag at the end of your uninstall command:
 ```
 sudo dnf remove <package> --noautoremove
 ```
 
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### 🧹 Remove unnecessary Add-ons
-These add-ons are optional. Remove any you don’t need.
+### 🧹 Get rid of extra input methods
+These are for typing in different languages. If you only use English (or whatever your main language is), you can safely ditch them.
+Packages:
 
-- **ibus-m17n** – Support for multiple multilingual input methods
-- **ibus-typing-booster** – Predictive typing input method
-- **ibus-hangul** – Korean input support
-- **ibus-libpinyin** – Chinese Pinyin input method
-- **ibus-anthy** – Japanese input support
+- ibus-m17n
+- ibus-typing-booster
+- ibus-hangul (Korean)
+- ibus-libpinyin (Chinese)
+- ibus-anthy (Japanese)
 
 ```
 # Uninstall
@@ -35,20 +33,19 @@ sudo dnf remove ibus-m17n ibus-typing-booster ibus-hangul ibus-libpinyin ibus-an
 sudo dnf install ibus-m17n ibus-typing-booster ibus-hangul ibus-libpinyin ibus-anthy
 ```
 
-> 📃 Notes<br>
-These input source add-ons can be found in Software ➞ Explore ➞ very bottom ➞ Input Sources
+> You can find these in the Software app under Input Sources at the very bottom.
 
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### 🚫 Apps You Might Not Need
-These apps are optional and can be removed if you don’t plan to use them.
+### 🚫 Apps you might not need
+These come pre-installed but aren't super useful for everyone.
 
-- **gnome-tour** – Not very useful after first boot
-- **gnome-color-manager** – Cannot be launched as a standalone app
-- **gnome-connections** – Users report it crashes often
-- **gnome-contacts** – Does not show all cities
-- **gnome-weather** – Japanese input support
-- **gnome-abrt** - Requires an API key; not very useful for new users
+- gnome-tour → just the welcome screen you see once
+- gnome-color-manager → doesn't even open as a normal app
+- gnome-connections → kinda buggy for a lot of people
+- gnome-contacts → doesnt really fit the desktop more like it was made for phones
+- gnome-weather → simple weather app (there are better ones)
+- gnome-abrt → crash reporting tool that needs setup and isn't great for beginners
 
 ```
 # Uninstall
@@ -60,10 +57,10 @@ sudo dnf install gnome-tour gnome-color-manager gnome-connections gnome-contacts
 
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### 🔴 Optional System Services
+### 🔴 System services you might not want
 Disable or remove these services if not required for your setup.
 
-- **abrt** - Automatic Bug Reporting Tool; collects and reports application crashes. Not essential for new users.
+- abrt → automatic crash reporter. Nice idea, but not really needed for most home users.
 
 ```
 # Uninstall
@@ -73,15 +70,12 @@ sudo dnf remove abrt
 sudo dnf install abrt
 ```
 
-> 📃 Notes<br>
-Removing this package also removes the Diagnostics menu under Settings ➞ Privacy & Security.
+> Removing this also cleans up the "Diagnostics" section in Settings → Privacy.
 
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### ⚡ Optional Boot Tweaks
-Disable or adjust these boot services if you don’t need them.
-
-- **NetworkManager-wait-online.service** - Delays boot until a network connection is fully established.
+### ⚡ Small boot speed tweak
+This one service waits for full network connection before finishing boot. If you're not using something that needs internet right at startup (like a VPN), disabling it shaves a few seconds off boot time.
 
 ```
 # Disable
@@ -90,43 +84,38 @@ sudo systemctl disable NetworkManager-wait-online.service
 # Enable
 sudo systemctl enable NetworkManager-wait-online.service
 ```
-> 📃 Notes<br>
-Disabling NetworkManager-wait-online.service can speed up boot slightly, but may impact services that need a network connection at startup (e.g., VPNs or cloud sync).
+
 
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### 🚀 Recommended Applications 
-from [**Flathub**](https://flathub.org/en)
+### 🚀 Some Flatpak apps I actually use and recommend
+Fedora has Flatpak ready to go out of the box. These are sandboxed, update easily, and don't mess with your system packages.
 
-Fedora comes with Flatpak support enabled by default. Flatpak apps are sandboxed, easy to install, and kept up to date independently of system packages. If you're using Flatpaks, these applications can help improve your workflow and give you better control over your system.
-
+Must-haves:
 - 🔐 [**Flatseal**](https://flathub.org/en/apps/com.github.tchx84.Flatseal) (⭐) – Easily manage and review Flatpak permissions
 - 🧩 [**Extension Manager**](https://flathub.org/en/apps/com.mattjakeman.ExtensionManager) (⭐) - Easily find, install, and manage GNOME extensions
+
+Nice extras:
 - 📦 [**Warehouse**](https://flathub.org/en/apps/io.github.flattool.Warehouse) – Manage all things Flatpak 
 - 🖊️ [**Gradia**](https://flathub.org/en/apps/be.alexandervanhee.gradia) – Annotate your screenshots
 - 📊 [**Resources**](https://flathub.org/en/apps/net.nokyan.Resources) – Monitor system resources
 - ...
 
-> 📃 Notes<br>
-Items marked with a ⭐ are considered essential for a smoother, more efficient Fedora experience.
-
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### 🧩 GNOME Extensions
-To get started with GNOME extensions, install [**Extension Manager**](https://flathub.org/en/apps/com.mattjakeman.ExtensionManager) (⭐). It helps you easily find, install, and manage extensions.
+### 🧩 GNOME extensions worth trying
+First, grab Extension Manager from above - it makes life way easier.
 
+Some solid ones:
 - [**Foresight**](https://extensions.gnome.org/extension/7901/foresight/) – Automatically opens the Activities view when no windows are open in the current workspace
 - [**Static Workspace Background**](https://extensions.gnome.org/extension/8505/static-workspace-background/) - Keep a static background while changing workspaces in GNOME
 - [**Essential Tweaks**](https://extensions.gnome.org/extension/8928/essential-tweaks/) - Tweak annoying defaults and enable quality of life features
 - [**Blur my Shell**](https://extensions.gnome.org/extension/3193/blur-my-shell/) - Adds a blur look to different parts of the GNOME Shell, including the top panel, dash and overview.
 - ...
 
-> 📃 Notes<br>
-Install GNOME extensions one at a time and monitor their behavior. Conflicting extensions may cause desktop instability, and having too many can slow down your system.
+Install them one by one. Too many extensions at once can make things sluggish or buggy.
 
 <p align=center>  ───────── ౨ৎ ───────── </p>
 
-### 🤝 Suggestions and Contributions
-Have recommendations or notice issues? Open an issue! If you know of pre-installed apps, add-ons, or services that can be safely removed or disabled, please share - they help improve this guide.
-
-<p align=center>  ───────── ౨ৎ ───────── </p>
+### 🤝 Got ideas?
+If you spot something else pre-installed that feels unnecessary, or you have better app/extension suggestions, let me know. I'm always happy to update this. Hope this helps make your Fedora feel a bit lighter and more yours!
